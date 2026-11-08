@@ -1,0 +1,5 @@
+# runtime state written by the tools
+sessions/
+.plain-harness/
+.scripts-mcp/
+.skills-mcp/

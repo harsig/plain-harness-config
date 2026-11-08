@@ -1,0 +1,7 @@
+timeout_seconds: 300            # the sub-agent runs a full model loop on a local model
+max_output_bytes: 32768
+
+sources:
+  - path: ./scripts
+    files:
+      - date-agent.sh

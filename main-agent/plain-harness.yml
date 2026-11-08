@@ -1,0 +1,29 @@
+max_iterations: 25
+
+model:
+  provider: openai_compatible
+  endpoint: http://localhost:8080/v1
+  name: "Qwen3.8-27B-S"
+  timeout_seconds: 600
+
+session_dir: ./sessions
+
+system_prompt_files:
+  - ./prompts/SOUL.md
+  - ./prompts/AGENT.md
+
+mcp_servers:
+  - name: "scripts-mcp"
+    stdio:
+      git:
+        url: git@github.com:harsig/scripts-mcp.git
+        ref: v1.0.0
+      setup:
+        - ["./build.sh"]
+        - ["./bin/scripts-mcp", "--setup", "./scripts-mcp.yml"]
+      command: ./bin/scripts-mcp
+      args: ["./scripts-mcp.yml"]
+
+# date-agent.sh runs the sub-agent, so setting up this agent sets up the sub-agent too.
+setup:
+  - ["../../plain-harness/bin/plain-harness", "--setup", "--config", "../sub-agent/plain-harness.yml"]

@@ -1,0 +1,10 @@
+timeout_seconds: 60
+max_output_bytes: 32768
+
+sources:
+  - git:
+      url: git@github.com:harsig/scripts.git
+      ref: v1.0.0
+    files:
+      - date.sh
+    
