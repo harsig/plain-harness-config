@@ -16,7 +16,7 @@ mcp_servers:
   - name: "scripts-mcp"
     stdio:
       git:
-        url: git@github.com:harsig/scripts-mcp.git
+        url: https://github.com/harsig/scripts-mcp.git
         ref: v1.0.0
       setup:
         - ["./build.sh"]
